@@ -126,6 +126,7 @@ def samples_factory():
 
 def get_unittest():
     """Return the unittest builder."""
+    return []  # TESTS CURRENTLY NOT SUPPORTED!
     env_unittest = env.Clone()
     env_unittest.Append(CPPPATH=["$VARIANT/src"])
     if not using_msvc and not env["LIBRARY_DEPRECATION"]:

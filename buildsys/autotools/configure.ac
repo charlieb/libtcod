@@ -20,6 +20,8 @@ AM_PROG_CC_C_O
 
 AC_ARG_ENABLE([samples], [AS_HELP_STRING([--enable-samples], [enable building sample applications])])
 AM_CONDITIONAL([ENABLE_SAMPLES], [test "x${enable_samples}" != "xno"])
+AC_ARG_ENABLE([tests], [AS_HELP_STRING([--enable-tests], [enable building tests])])
+AM_CONDITIONAL([ENABLE_TESTS], [test "x${enable_tests}" != "xno"])
 
 dnl -----------------------------------
 dnl From wiki.libsdl.org/FAQLinux

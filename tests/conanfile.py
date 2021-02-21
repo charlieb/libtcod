@@ -6,6 +6,7 @@ from conans import ConanFile, CMake, tools
 class LibtcodTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
+    requires = ("Catch2/[>=2.11.1]@catchorg/stable",)
 
     def build(self):
         cmake = CMake(self)

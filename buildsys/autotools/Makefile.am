@@ -39,13 +39,15 @@ samples_cpp_SOURCES = ../../samples/samples_cpp.cpp
 samples_cpp_LDADD = libtcod.la
 endif
 
+if ENABLE_TESTS
 check_scripts = unittest.sh
 check_PROGRAMS = unittest
-unittest_SOURCES = ../../tests/catch.cpp ../../tests/unittest.cpp
+unittest_SOURCES = ../../tests/unittest.cpp
 unittest_LDADD = libtcod.la
 unittest_CXXFLAGS = $(CXXFLAGS)
 
 TESTS = unittest.sh
+endif
 
 dist_noinst_DATA = \
 	../../CHANGELOG.md \

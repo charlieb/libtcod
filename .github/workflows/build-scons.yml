@@ -50,11 +50,6 @@ jobs:
         SCONS_OPTIONS: ${{ matrix.scons-options }}
       run: |
         scons develop_all dist -j 3 -s CPPDEFINES=NDEBUG MODE=DEBUG_RELEASE $SCONS_OPTIONS
-    - name: Unit tests
-      env:
-        LD_LIBRARY_PATH: ${{github.workspace}}
-      run: |
-        ./unittest ~[!nonportable]
     - name: Archive distribution
       uses: actions/upload-artifact@v2
       with:

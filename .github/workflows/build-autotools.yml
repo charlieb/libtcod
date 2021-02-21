@@ -21,10 +21,17 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install libsdl2-dev
+    - name: Install Catch2
+      if: runner.os == 'Linux' && matrix.os == 'ubuntu-20.04'
+      run: |
+        git clone https://github.com/catchorg/Catch2.git --branch v2.13.4 --depth 1
+        cd Catch2
+        cmake -Bbuild -H. -DBUILD_TESTING=OFF -DCMAKE_INSTALL_PREFIX:PATH=/usr
+        sudo cmake --build build/ --target install
     - name: Install Brew dependencies
       if: runner.os == 'macOS'
       run: |
-        brew install automake sdl2
+        brew install automake sdl2 catch2
     - name: Configure package
       working-directory: buildsys/autotools
       run: |
